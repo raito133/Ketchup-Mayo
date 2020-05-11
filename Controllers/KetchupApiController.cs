@@ -27,6 +27,16 @@ namespace KetchupMayoSite.Controllers
             return Ok(ketchups);
         }
 
+        // Get method that returns details of one entity(Ketchups)
+        // example /api/ketchup/1
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            var ketchup = _ketchupService.Get(id);
+            return Ok(ketchup);
+        }
+
         // example: api/ketchup
         // add new entity Ketchup
         [HttpPost]

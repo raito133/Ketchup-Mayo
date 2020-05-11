@@ -9,7 +9,7 @@ using KetchupMayoSite.Services;
 
 namespace KetchupMayoSite.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/mayo")]
     [ApiController]
     public class MayoApiController : ControllerBase
     {
@@ -26,6 +26,17 @@ namespace KetchupMayoSite.Controllers
             var mayos = _mayoService.Get();
             return Ok(mayos);
         }
+
+        // Get method that returns details of one entity(Mayo)
+        // example /api/mayo/1
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetById([FromRoute] int id)
+        {
+            var mayo = _mayoService.Get(id);
+            return Ok(mayo);
+        }
+
 
         // example: api/mayo
         // add new entity Mayo
