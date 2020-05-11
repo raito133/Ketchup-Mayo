@@ -25,6 +25,7 @@ namespace KetchupMayoSite.Models
         [DisplayName("Ostrość")]
         public int Spiciness { get; set; }
         [DisplayName("Data produkcji")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime ProductionDate { get; set; }
 
     }
